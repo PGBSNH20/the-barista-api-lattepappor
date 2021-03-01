@@ -17,6 +17,7 @@ class Espresso : IBeverage
     public List<string> Ingredients => throw new System.NotImplementedException();
     //Espresso 4/4 (span?)
     public string CupType => throw new System.NotImplementedException();
+    
 }
 
 class Latte : IBeverage
