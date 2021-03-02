@@ -19,7 +19,6 @@ class Espresso : IBeverage
     public List<string> Ingredients => new List<string> { "Beans", "Water" };
     //Espresso 4/4 / Water? (span?)
     public string CupType => "Small";
-    
 }
 
 class Latte : IBeverage
