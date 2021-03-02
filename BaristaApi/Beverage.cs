@@ -1,15 +1,13 @@
 using System.Collections.Generic;
-//INGREDIENTS
-//ESPRESSO
-//MILK
-//MILK FOAM
-//CHOCOLATE SYRUP
-//WATER
+//INGREDIENTS:
+//ESPRESSO, MILK, MILK FOAM, CHOCOLATE SYRUP, WATER
 
-//CUPTYPE,
-//Small
-//Medium
-//Big
+//CUPTYPE:
+//Small, Medium, Large
+
+//COFFEE BEAN TYPES:
+//Arabica: "Normal" coffee types
+//Robusta: Strong coffee types
 
 public interface IBeverage{
 	List<string> Ingredients { get; }
