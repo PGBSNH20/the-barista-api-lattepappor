@@ -32,7 +32,7 @@ class Cappucino : IBeverage
 {
     public List<string> Ingredients => new List<string> { "Beans", "Milk" , "Milk Foam"};
     // Espresso 1/4, Milk 1/4, Milk Foam 2/4
-    public string CupType => "Medium";
+    public string CupType => "Large";
 }
 
 class Americano : IBeverages
