@@ -11,6 +11,8 @@ using System.Collections.Generic;
 
 public interface IBeverage{
 	List<string> Ingredients { get; }
+    //Enum CupType istället för string kanske?
+    //Enum CupType { Small, Medium, Large }
     string CupType { get; }
 
     IBeverage GetBeverageType();
