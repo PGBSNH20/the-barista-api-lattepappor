@@ -7,7 +7,7 @@ using BaristaApi.Interface;
 
 namespace BaristaApi
 {
-    class BeverageBuilder :
+    public class BeverageBuilder :
         IBeverageBuilderCoffeeType,
         IBeverageBuilderCupType,
         IBeverageBuilderBeanType,
