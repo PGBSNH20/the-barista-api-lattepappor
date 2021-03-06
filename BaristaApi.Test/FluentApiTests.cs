@@ -7,12 +7,14 @@ namespace BaristaApi.Tests
         [Fact]
         public void When_AddingWaterAndBeans_Expect_Espresso(){
             //Pseudo code
-            /*
+
             // Act
-            var beverage = new EspressoMachine().AddWater().AddBeans().ToBeverage();
+            // var beverage = new EspressoMachine().AddWater().AddBeans().ToBeverage();
+            int i = 1;
             // Assert
-            Assert.IsType<Espresso>(beverage);
-            */
+            Assert.IsType<string>(2);
+            
+           
         }
     }
 }
