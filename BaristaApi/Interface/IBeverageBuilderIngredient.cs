@@ -8,6 +8,6 @@ namespace BaristaApi.Interface
 {
     public interface IBeverageBuilderIngredient
     {
-        IBeverageBuilderFinish AddIngredient();
+        IBeverageBuilderFinish AddIngredient(int milk = 0, int milkFoam = 0, int chocolateSyrup = 0);
     }
 }

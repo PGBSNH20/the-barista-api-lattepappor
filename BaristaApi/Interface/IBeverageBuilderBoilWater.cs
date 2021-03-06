@@ -8,6 +8,6 @@ namespace BaristaApi.Interface
 {
     public interface IBeverageBuilderBoilWater
     {
-        IBeverageBuilderFinish BoilWater();
+        IBeverageBuilderIngredient BoilWater();
     }
 }

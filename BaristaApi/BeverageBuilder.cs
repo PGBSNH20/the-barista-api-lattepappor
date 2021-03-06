@@ -13,8 +13,10 @@ namespace BaristaApi
         IBeverageBuilderBeanType,
         IBeverageBuilderBeanGrind,
         IBeverageBuilderBoilWater,
+        IBeverageBuilderIngredient,
         IBeverageBuilderFinish
     {
+
         private BeverageTypes.BeverageType _type;
         private BeanTypes.BeanType _bean;
         private CupTypes.CupType _cupSize;
@@ -40,9 +42,9 @@ namespace BaristaApi
         {
             _type = type;
             Console.WriteLine("Select Beverage");
-            Thread.Sleep(1500);
+            //Thread.Sleep(1500);
             Console.WriteLine($"You Selected: {_type}\n");
-            Thread.Sleep(1500);
+            //Thread.Sleep(1500);
             return this;
         }
 
@@ -50,18 +52,18 @@ namespace BaristaApi
         {
             _cupSize = cupType;
             Console.WriteLine("Select Cup Size");
-            Thread.Sleep(1500);
+            //Thread.Sleep(1500);
             Console.WriteLine($"You Selected: {_cupSize}\n");
-            Thread.Sleep(1500);
+            //Thread.Sleep(1500);
             return this;
         }
         public IBeverageBuilderBeanGrind ChooseBeans(BeanTypes.BeanType bean)
         {
             _bean = bean;
             Console.WriteLine("Select Bean Type");
-            Thread.Sleep(1500);
+            //Thread.Sleep(1500);
             Console.WriteLine($"You Selected: {_bean}\n");
-            Thread.Sleep(1500);
+            //Thread.Sleep(1500);
             return this;
         }
 
@@ -70,9 +72,9 @@ namespace BaristaApi
             // Implementera default case
             _beanAmount = _cupSize switch
             {
-                CupTypes.CupType.Small => _beanAmount = 10,
-                CupTypes.CupType.Medium => _beanAmount = 20,
-                _ => _beanAmount = 30,
+                CupTypes.CupType.Small => _beanAmount = 4,
+                CupTypes.CupType.Medium => _beanAmount = 6,
+                _ => _beanAmount = 8,
             };
             GrindingProcess();
 
@@ -80,30 +82,90 @@ namespace BaristaApi
             return this;
         }
 
-        public IBeverageBuilderFinish BoilWater()
+        public IBeverageBuilderIngredient BoilWater()
         {
             _water = _cupSize switch
             {
-                CupTypes.CupType.Small => _water = 10,
-                CupTypes.CupType.Medium => _water = 20,
-                _ => _water = 30,
+                CupTypes.CupType.Small => _water = 8,
+                CupTypes.CupType.Medium => _water = 12,
+                _ => _water = 16,
             };
             BoilingProcess();
             return this;
         }
 
-        //IBeverageBuilderIngredient AddIngredient()
-        //{
-        //    if (_type == BeverageType.BeverageTypes.Americano)
-        //    {
-        //        Console.WriteLine($"Ingredients added for {_type}:");
-        //        //Espresso
-        //        //Water
-        //    }
+        public IBeverageBuilderFinish AddIngredient(int milk = 0, int milkFoam = 0, int chocolateSyrup = 0)
+        {
+            Console.WriteLine($"Preparing {_type}\n");
+            //Thread.Sleep(1000);
+            Console.WriteLine("...\n");
+            //Thread.Sleep(1000);
+            Console.WriteLine($"Enjoy our {_type}!\n");
+            //Thread.Sleep(1000);
 
-        //    //Fortsätt med fler else-if här nedan för resterande ingredienser beroende på Beverage Type.
-        //    return this;
-        //}
+            //ESPRESSO
+            //Don't need this because Espresso is the parent / base.
+
+            switch (_type)
+            {
+
+                case BeverageTypes.BeverageType.Americano:
+                    _water = _cupSize switch
+                    {
+                        CupTypes.CupType.Small => _water += 4,
+                        CupTypes.CupType.Medium => _water += 6,
+                        CupTypes.CupType.Large => _water += 8
+                    };
+                    break;
+
+                case BeverageTypes.BeverageType.Cappuccino:
+                    (_milk, _milkFoam) = _cupSize switch
+                    {
+                        CupTypes.CupType.Small => (8, 8),
+                        CupTypes.CupType.Medium => (12, 12),
+                        CupTypes.CupType.Large => (16, 16)
+                    };
+                    break;
+
+                case BeverageTypes.BeverageType.Latte:
+                    _milk = _cupSize switch
+                    {
+                        CupTypes.CupType.Small => _milk += 24,
+                        CupTypes.CupType.Medium => _milk += 36,
+                        CupTypes.CupType.Large => _milk += 48
+                    };
+                    break;
+
+                case BeverageTypes.BeverageType.Macchiato:
+                    _milkFoam = _cupSize switch
+                    {
+                        CupTypes.CupType.Small => _milkFoam += 24,
+                        CupTypes.CupType.Medium => _milkFoam += 36,
+                        CupTypes.CupType.Large => _milkFoam += 48
+                    };
+                    break;
+
+                case BeverageTypes.BeverageType.Mocha:
+                    (_milk, _chocolateSyrup) = _cupSize switch
+                    {
+                        CupTypes.CupType.Small => (16, 8),
+                        CupTypes.CupType.Medium => (24, 12),
+                        CupTypes.CupType.Large => (32, 16)
+                    };
+                    break;
+
+                case BeverageTypes.BeverageType.Custom:
+                    (_milk, _milkFoam, _chocolateSyrup) = _cupSize switch
+                    {
+                        CupTypes.CupType.Small => (milk, milkFoam, chocolateSyrup),
+                        CupTypes.CupType.Medium => (milk, milkFoam, chocolateSyrup),
+                        CupTypes.CupType.Large => (milk, milkFoam, chocolateSyrup)
+                    };
+                    break;
+            }
+
+            return this;
+        }
 
         public Espresso ToBeverage() => _type switch
         {
@@ -117,7 +179,7 @@ namespace BaristaApi
 
             BeverageTypes.BeverageType.Custom => new Custom { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, Milk = _milk, MilkFoam = _milkFoam, ChocolateSyrup = _chocolateSyrup },
 
-            BeverageTypes.BeverageType.Macchiato => new Macchiato { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, MilkFoam = _milkFoam },
+            BeverageTypes.BeverageType.Macchiato => new Macchiato { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, MilkFoam = _milkFoam },
 
             _ => new Espresso { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water },
         };
@@ -126,10 +188,11 @@ namespace BaristaApi
         void GrindingProcess()
         {
             Console.WriteLine($"Grinding {_beanAmount} grams");
-            Thread.Sleep(1000);
+            //Thread.Sleep(1000);
             Console.WriteLine("Almost done...");
-            Thread.Sleep(1000);
+            //Thread.Sleep(1000);
             Console.WriteLine("Done!");
+            //Thread.Sleep(1000);
         }
 
         /// <summary>
@@ -157,17 +220,18 @@ namespace BaristaApi
             {
                 if (_brewTemp == 10 || _brewTemp == 20 || _brewTemp == 30 || _brewTemp == 40 || _brewTemp == 50 || _brewTemp == 60 || _brewTemp == 70 || _brewTemp == 80 || _brewTemp == 90 || _brewTemp == 100)
                 {
-                    Thread.Sleep(500);
+                    //Thread.Sleep(500);
                     Console.WriteLine($"Water Temp: {_brewTemp}");
                 }
             }
-            Thread.Sleep(500);
+            //Thread.Sleep(500);
             Console.WriteLine($"Water Temp: {_brewTemp}");
 
             Console.WriteLine("\nBoiling completed!");
-            Thread.Sleep(1000);
+            //Thread.Sleep(1000);
 
             Console.WriteLine($"\nPouring {_water}cl water\n");
+            //Thread.Sleep(1000);
         }
     }
 }
