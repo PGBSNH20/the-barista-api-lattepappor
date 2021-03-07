@@ -389,7 +389,7 @@ namespace BaristaApi.Test
         }
 
         [TestMethod]
-        public void CheckIngredientsMacchiato()
+        public void Check_Ingredients_Macchiato_Ignoring_Parameters()
         {
             var ingredient = (Macchiato)BeverageBuilder.StartBrew()
                 .CoffeeType(BeverageTypes.BeverageType.Macchiato)
