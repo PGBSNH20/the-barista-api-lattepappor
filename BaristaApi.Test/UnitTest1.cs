@@ -8,7 +8,7 @@ namespace BaristaApi.Test
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void InstanceTest()
         {
             var cappuccino = BeverageBuilder.
                 StartBrew()
@@ -19,8 +19,6 @@ namespace BaristaApi.Test
                 .BoilWater()
                 .AddIngredient()
                 .ToBeverage();
-
-            Type type = cappuccino.GetType();
 
             Assert.IsInstanceOfType(cappuccino, typeof(Espresso));
         }

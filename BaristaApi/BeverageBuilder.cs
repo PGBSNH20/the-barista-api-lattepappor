@@ -169,19 +169,19 @@ namespace BaristaApi
 
         public Espresso ToBeverage() => _type switch
         {
-            BeverageTypes.BeverageType.Americano => new Americano { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water },
+            BeverageTypes.BeverageType.Americano => new Americano { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, BrewTemp = _brewTemp },
 
-            BeverageTypes.BeverageType.Cappuccino => new Capuccino { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, Milk = _milk, MilkFoam = _milkFoam },
+            BeverageTypes.BeverageType.Cappuccino => new Capuccino { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, Milk = _milk, MilkFoam = _milkFoam, BrewTemp = _brewTemp },
 
-            BeverageTypes.BeverageType.Latte => new Latte { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, Milk = _milk },
+            BeverageTypes.BeverageType.Latte => new Latte { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, Milk = _milk, BrewTemp = _brewTemp },
 
-            BeverageTypes.BeverageType.Mocha => new Mocha { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, Milk = _milk, ChocolateSyrup = _chocolateSyrup },
+            BeverageTypes.BeverageType.Mocha => new Mocha { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, Milk = _milk, ChocolateSyrup = _chocolateSyrup, BrewTemp = _brewTemp },
 
-            BeverageTypes.BeverageType.Custom => new Custom { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, Milk = _milk, MilkFoam = _milkFoam, ChocolateSyrup = _chocolateSyrup },
+            BeverageTypes.BeverageType.Custom => new Custom { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, Milk = _milk, MilkFoam = _milkFoam, ChocolateSyrup = _chocolateSyrup, BrewTemp = _brewTemp },
 
-            BeverageTypes.BeverageType.Macchiato => new Macchiato { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, MilkFoam = _milkFoam },
+            BeverageTypes.BeverageType.Macchiato => new Macchiato { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, MilkFoam = _milkFoam, BrewTemp = _brewTemp },
 
-            _ => new Espresso { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water },
+            _ => new Espresso { Type = _type, CupSize = _cupSize, Bean = _bean, IsGrinded = _isGrinded, BeanAmount = _beanAmount, Water = _water, BrewTemp = _brewTemp },
         };
 
         // ################ Print to console methods #################

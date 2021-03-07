@@ -8,15 +8,15 @@ namespace BaristaApi
         {
             var firstBeverage = BeverageBuilder
                 .StartBrew()
-                .CoffeeType(BeverageTypes.BeverageType.Custom)
+                .CoffeeType(BeverageTypes.BeverageType.Espresso)
                 .SelectCup(CupTypes.CupType.Medium)
-                .ChooseBeans(BeanTypes.BeanType.Robusta)
+                .ChooseBeans(BeanTypes.BeanType.Arabica)
                 .GrindBean()
                 .BoilWater()
                 .AddIngredient(milk: 50)
                 .ToBeverage();
             
-            Console.WriteLine(firstBeverage);
+            Console.WriteLine(firstBeverage.BrewTemp);
         }
     } 
 } 
