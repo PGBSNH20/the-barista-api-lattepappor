@@ -274,7 +274,7 @@ namespace BaristaApi.Test
         }
 
         [TestMethod]
-        public void BoiledWaterFail()
+        public void BoiledWaterFalse()
         {
             var water = BeverageBuilder.StartBrew()
                 .CoffeeType(BeverageTypes.BeverageType.Mocha)
@@ -338,7 +338,7 @@ namespace BaristaApi.Test
         }
 
         [TestMethod]
-        public void BoiledWaterAmericanoFail()
+        public void BoiledWaterAmericanoFalse()
         {
             var water = BeverageBuilder.StartBrew()
                 .CoffeeType(BeverageTypes.BeverageType.Americano)
