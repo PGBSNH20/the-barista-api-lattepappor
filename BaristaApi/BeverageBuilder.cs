@@ -28,10 +28,10 @@ namespace BaristaApi
         private int _milkFoam;
         private int _chocolateSyrup;
 
-        private BeverageBuilder()
-        {
+        //private BeverageBuilder()
+        //{
 
-        }
+        //}
 
         public static IBeverageBuilderCoffeeType StartBrew()
         {
