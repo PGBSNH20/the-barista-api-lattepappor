@@ -42,9 +42,9 @@ namespace BaristaApi
         {
             _type = type;
             Console.WriteLine("Select Beverage");
-            //Thread.Sleep(1500);
+            Thread.Sleep(1500);
             Console.WriteLine($"You Selected: {_type}\n");
-            //Thread.Sleep(1500);
+            Thread.Sleep(1500);
             return this;
         }
 
@@ -52,18 +52,18 @@ namespace BaristaApi
         {
             _cupSize = cupType;
             Console.WriteLine("Select Cup Size");
-            //Thread.Sleep(1500);
+            Thread.Sleep(1500);
             Console.WriteLine($"You Selected: {_cupSize}\n");
-            //Thread.Sleep(1500);
+            Thread.Sleep(1500);
             return this;
         }
         public IBeverageBuilderBeanGrind ChooseBeans(BeanTypes.BeanType bean)
         {
             _bean = bean;
             Console.WriteLine("Select Bean Type");
-            //Thread.Sleep(1500);
+            Thread.Sleep(1500);
             Console.WriteLine($"You Selected: {_bean}\n");
-            //Thread.Sleep(1500);
+            Thread.Sleep(1500);
             return this;
         }
 
@@ -96,12 +96,13 @@ namespace BaristaApi
 
         public IBeverageBuilderFinish AddIngredient(int milk = 0, int milkFoam = 0, int chocolateSyrup = 0)
         {
-            Console.WriteLine($"Preparing {_type}\n");
-            //Thread.Sleep(1000);
+            string custom = _type == BeverageTypes.BeverageType.Custom ? "Custom Beverage" : _type.ToString();
+            Console.WriteLine($"Preparing {custom}\n");
+            Thread.Sleep(1000);
             Console.WriteLine("...\n");
-            //Thread.Sleep(1000);
-            Console.WriteLine($"Enjoy our {_type}!\n");
-            //Thread.Sleep(1000);
+            Thread.Sleep(1000);
+            Console.WriteLine($"Enjoy your {custom}!\n");
+            Thread.Sleep(1000);
 
             //ESPRESSO
             //Don't need this because Espresso is the parent / base.
@@ -188,11 +189,11 @@ namespace BaristaApi
         void GrindingProcess()
         {
             Console.WriteLine($"Grinding {_beanAmount} grams");
-            //Thread.Sleep(1000);
+            Thread.Sleep(1000);
             Console.WriteLine("Almost done...");
-            //Thread.Sleep(1000);
+            Thread.Sleep(1000);
             Console.WriteLine("Done!");
-            //Thread.Sleep(1000);
+            Thread.Sleep(1000);
         }
 
         /// <summary>
@@ -220,18 +221,18 @@ namespace BaristaApi
             {
                 if (_brewTemp == 10 || _brewTemp == 20 || _brewTemp == 30 || _brewTemp == 40 || _brewTemp == 50 || _brewTemp == 60 || _brewTemp == 70 || _brewTemp == 80 || _brewTemp == 90 || _brewTemp == 100)
                 {
-                    //Thread.Sleep(500);
+                    Thread.Sleep(500);
                     Console.WriteLine($"Water Temp: {_brewTemp}");
                 }
             }
-            //Thread.Sleep(500);
+            Thread.Sleep(500);
             Console.WriteLine($"Water Temp: {_brewTemp}");
 
             Console.WriteLine("\nBoiling completed!");
-            //Thread.Sleep(1000);
+            Thread.Sleep(1000);
 
             Console.WriteLine($"\nPouring {_water}cl water\n");
-            //Thread.Sleep(1000);
+            Thread.Sleep(1000);
         }
     }
 }

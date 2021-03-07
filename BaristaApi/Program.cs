@@ -6,17 +6,17 @@ namespace BaristaApi
     {
         static void Main(string[] args)
         {
-            var firstBeverage = BeverageBuilder
-                .StartBrew()
-                .CoffeeType(BeverageTypes.BeverageType.Macchiato)
-                .SelectCup(CupTypes.CupType.Medium)
-                .ChooseBeans(BeanTypes.BeanType.Arabica)
-                .GrindBean()
-                .BoilWater()
-                .AddIngredient(milk: 50)
-                .ToBeverage();
-            
-            Console.WriteLine(firstBeverage);
+            //var firstBeverage = BeverageBuilder
+            //    .StartBrew()
+            //    .CoffeeType(BeverageTypes.BeverageType.Macchiato)
+            //    .SelectCup(CupTypes.CupType.Medium)
+            //    .ChooseBeans(BeanTypes.BeanType.Arabica)
+            //    .GrindBean()
+            //    .BoilWater()
+            //    .AddIngredient(milk: 50)
+            //    .ToBeverage();
+
+            //Console.WriteLine(firstBeverage);
         }
     } 
 } 
