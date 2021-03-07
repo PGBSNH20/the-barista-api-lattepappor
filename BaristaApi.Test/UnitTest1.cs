@@ -10,7 +10,19 @@ namespace BaristaApi.Test
         [TestMethod]
         public void TestMethod1()
         {
-            throw new NotImplementedException();
+            var cappuccino = BeverageBuilder.
+                StartBrew()
+                .CoffeeType(BeverageTypes.BeverageType.Cappuccino)
+                .SelectCup(CupTypes.CupType.Large)
+                .ChooseBeans(BeanTypes.BeanType.Arabica)
+                .GrindBean()
+                .BoilWater()
+                .AddIngredient()
+                .ToBeverage();
+
+            Type type = cappuccino.GetType();
+
+            Assert.IsInstanceOfType(cappuccino, typeof(Espresso));
         }
     }
 }
